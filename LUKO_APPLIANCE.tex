@@ -1,0 +1,1182 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{LUKO\_APPLIANCE}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Appliance disaggregation}\label{appliance-disaggregation}
+
+The following experiments directly tackle the appliance disaggregation
+problem, and the identification of signal signatures of appliances in
+households.
+
+\subsubsection{Generated Data}\label{generated-data}
+
+First, we propose to generate ``toy data'' of random signals with the
+typical electric signal signature of a refrigerator: - The time step of
+the time series is ** one second ** - The refrigerator is started each
+hours (\(3600\) seconds) of one day (\(24\times 3600\) seconds)
+
+\begin{align}
+\begin{cases}
+0~W,~\mathrm{for ~}~ t < 0s \cup t>900s \\
+200 \times (1+ \exp^{-\frac{t}{10}}) ~,\mathrm{otherwise}
+\end{cases}
+\end{align}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{numpy}\PY{n+nn}{.}\PY{n+nn}{ma} \PY{k}{as} \PY{n+nn}{ma}
+        \PY{k+kn}{import} \PY{n+nn}{warnings}
+        \PY{n}{warnings}\PY{o}{.}\PY{n}{filterwarnings}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ignore}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{cross\PYZus{}validation} \PY{k}{import} \PY{n}{StratifiedShuffleSplit}\PY{p}{,} \PY{n}{StratifiedKFold}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{jaccard\PYZus{}similarity\PYZus{}score}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{f1\PYZus{}score}\PY{p}{,} \PY{n}{accuracy\PYZus{}score}
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k}{class} \PY{n+nc}{Generator}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{gen\PYZus{}signals\PYZus{}hour}\PY{p}{(}\PY{n}{cls}\PY{p}{,}\PY{n}{zero}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+                \PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{k}{for} \PY{n}{t} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3601}\PY{p}{)}\PY{p}{:}
+                    \PY{k}{if} \PY{p}{(}\PY{n}{t}\PY{o}{\PYZlt{}}\PY{l+m+mi}{0}\PY{p}{)} \PY{o+ow}{or} \PY{p}{(}\PY{n}{t} \PY{o}{\PYZgt{}} \PY{l+m+mi}{900}\PY{p}{)}\PY{p}{:}
+                        \PY{n}{x}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{zero}\PY{p}{)}
+                    \PY{k}{else}\PY{p}{:}
+                        \PY{n}{x}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{200} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                \PY{k}{return} \PY{n}{x}
+            
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{gen\PYZus{}signature\PYZus{}day}\PY{p}{(}\PY{n}{cls}\PY{p}{,}\PY{n}{zero}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+                \PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{k}{for} \PY{n}{h} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{x}\PY{o}{+}\PY{o}{=}\PY{n}{cls}\PY{o}{.}\PY{n}{gen\PYZus{}signals\PYZus{}hour}\PY{p}{(}\PY{n}{zero}\PY{o}{=}\PY{n}{zero}\PY{p}{)}
+                \PY{k}{return} \PY{n}{x}
+            
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{get\PYZus{}a}\PY{p}{(}\PY{n}{cls}\PY{p}{)}\PY{p}{:}
+                \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{l+m+mi}{3600}\PY{o}{*}\PY{l+m+mi}{24}\PY{p}{)}
+                \PY{k}{return} \PY{n}{x}
+            
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{get\PYZus{}b}\PY{p}{(}\PY{n}{cls}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}a}\PY{p}{(}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1000}
+            
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{get\PYZus{}c}\PY{p}{(}\PY{n}{cls}\PY{p}{)}\PY{p}{:}
+                \PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{k}{for} \PY{n}{h} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{)}\PY{p}{:}
+                    \PY{k}{for} \PY{n}{t} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{3601}\PY{p}{)}\PY{p}{:}
+                        \PY{n}{x}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{1000} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{pi} \PY{o}{*} \PY{p}{(}\PY{n}{t} \PY{o}{/} \PY{l+m+mf}{3600.}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                \PY{k}{return} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{get\PYZus{}d}\PY{p}{(}\PY{n}{cls}\PY{p}{)}\PY{p}{:}
+                \PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{k}{for} \PY{n}{h} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{)}\PY{p}{:}
+                    \PY{k}{for} \PY{n}{t} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{3601}\PY{p}{)}\PY{p}{:}
+                        \PY{n}{x}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{0}\PY{o}{+} \PY{l+m+mi}{15}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+                \PY{k}{return} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{get\PYZus{}e}\PY{p}{(}\PY{n}{cls}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}c}\PY{p}{(}\PY{p}{)} \PY{o}{+} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}d}\PY{p}{(}\PY{p}{)}
+            
+            \PY{n+nd}{@classmethod}
+            \PY{k}{def} \PY{n+nf}{get\PYZus{}toy\PYZus{}dataset}\PY{p}{(}\PY{n}{cls}\PY{p}{)}\PY{p}{:}
+                \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{l+s+sd}{        based on previous data generator we propose to make a dataset of different hourly examples including:}
+        \PY{l+s+sd}{        \PYZhy{} signal+signature}
+        \PY{l+s+sd}{        \PYZhy{} signal alone}
+        \PY{l+s+sd}{        500 hourly signal are generated of each aforementionned type of examples.        }
+        \PY{l+s+sd}{        if noise== True, then }
+        \PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+                \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                \PY{n}{signature} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{gen\PYZus{}signals\PYZus{}hour}\PY{p}{(}\PY{n}{zero}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{500}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}a}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3600}\PY{p}{]}
+                    \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}b}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3600}\PY{p}{]}
+                    \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}c}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3600}\PY{p}{]}
+                    \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}d}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3600}\PY{p}{]}
+                    \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{cls}\PY{o}{.}\PY{n}{get\PYZus{}e}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3600}\PY{p}{]}
+                    \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                \PY{n}{dfsign} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}\PY{o}{+}\PY{n}{signature}
+                \PY{n}{dfsign}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}
+                \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}
+                \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{dfsign}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/toy\PYZus{}dataset.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+                \PY{k}{return} \PY{n}{df}        
+\end{Verbatim}
+
+    \subsubsection{Plot a random signal and the refrigerator
+signature}\label{plot-a-random-signal-and-the-refrigerator-signature}
+
+\begin{itemize}
+\tightlist
+\item
+  plot the signal in blue
+\item
+  the signature is in red
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{signal} \PY{o}{=} \PY{n}{Generator}\PY{o}{.}\PY{n}{get\PYZus{}c}\PY{p}{(}\PY{p}{)}
+        \PY{n}{signature}\PY{p}{,}\PY{n}{signature\PYZus{}mask} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{Generator}\PY{o}{.}\PY{n}{gen\PYZus{}signature\PYZus{}day}\PY{p}{(}\PY{n}{zero}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{Generator}\PY{o}{.}\PY{n}{gen\PYZus{}signature\PYZus{}day}\PY{p}{(}\PY{n}{zero}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{)}\PY{p}{)}
+        \PY{n}{z} \PY{o}{=} \PY{n}{signal}\PY{o}{+}\PY{n}{signature}
+        \PY{n}{i} \PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{signature\PYZus{}mask}\PY{p}{)}
+        
+        
+        \PY{n}{minn} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{n}{maxx} \PY{o}{=} \PY{l+m+mi}{3600}
+        \PY{n}{padding} \PY{o}{=} \PY{l+m+mi}{1200}
+        
+        \PY{c}{\PYZsh{}plot the electric signal + the refrigerator signature}
+        \PY{n}{sns}\PY{o}{.}\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{minn}\PY{p}{,}\PY{n}{maxx}\PY{o}{+}\PY{n}{padding}\PY{p}{)}\PY{p}{,}\PY{n}{z}\PY{p}{[}\PY{n}{minn}\PY{p}{:}\PY{n}{maxx}\PY{o}{+}\PY{n}{padding}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{blue}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{c}{\PYZsh{}plot the electric signal if there is the refrigerator}
+        \PY{n}{maska} \PY{o}{=} \PY{n}{ma}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{signal}\PY{p}{,}\PY{n}{mask}\PY{o}{=}\PY{n}{i}\PY{p}{,}\PY{n}{copy}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        \PY{n}{sns}\PY{o}{.}\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{minn}\PY{p}{,}\PY{n}{maxx}\PY{o}{+}\PY{n}{padding}\PY{p}{)}\PY{p}{,}\PY{n}{maska}\PY{p}{[}\PY{n}{minn}\PY{p}{:}\PY{n}{maxx}\PY{o}{+}\PY{n}{padding}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{markevery}\PY{o}{=}\PY{l+m+mi}{300}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{p}{)}
+        
+        \PY{c}{\PYZsh{}plot the refrigerator signature}
+        \PY{n}{mask} \PY{o}{=} \PY{n}{ma}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{z}\PY{p}{,}\PY{n}{mask}\PY{o}{=}\PY{n}{i}\PY{p}{,}\PY{n}{copy}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        \PY{n}{sns}\PY{o}{.}\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{minn}\PY{p}{,}\PY{n}{maxx}\PY{o}{+}\PY{n}{padding}\PY{p}{)}\PY{p}{,}\PY{n}{mask}\PY{p}{[}\PY{n}{minn}\PY{p}{:}\PY{n}{maxx}\PY{o}{+}\PY{n}{padding}\PY{p}{]}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}3}]:} [<matplotlib.lines.Line2D at 0x10b2bca58>]
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LUKO_APPLIANCE_files/LUKO_APPLIANCE_4_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Reference Energy Disaggregation Data Set
+(REDD){[}1{]}}\label{reference-energy-disaggregation-data-set-redd1}
+
+While generating data is a good alternative for initial experiments,
+such usage remains limited to some preliminary experiments for testing
+algorithms. To prevent some misleading conclusions due to some
+misleading, it is strongly prefered to use some existing data: -
+collected from rigourous simulations, for example with some system
+engineering tools like Simulink or Dymola. - Collected from real
+measurements, with various sensors
+
+REDD is a relatively large set of data collected from 20 different
+electricity appliances:* mains, oven, refrigerator, dishwaser, kitchen
+outlets, lighting, washer dryer, microwave, bathroom\_gfi,
+electric\_heat, stove, disposal, outlets\_unknown, electronics, furance,
+smoke\_alarms, air\_conditioning, miscellaeneous, subpanel,
+outdoor\_outlets *. Data are collected from 6 different households.
+
+\subparagraph{Use the dataset}\label{use-the-dataset}
+
+For practical purposes, the original data are reorganized, as follows: -
+Replace the timestamp (long int) to datetime object - Slice each signal
+per hour. - Create a new dataset with hourly separated data
+
+{Why slicing data?} In a traditional machine learning/ optimization
+where input dimension are fixed, it will require to have the same sample
+size when the model is put in production. Using hourly sub samples will
+reduce the overall number of input dimensions and may cope with some
+available samples in an operational context. This directly copes with
+the curse of dimensionality phenomena{[}2{]}.
+
+\begin{itemize}
+\tightlist
+\item
+   {[}1{]} Kolter, J. Z., \& Johnson, M. J. (2011, August). REDD: A
+  public data set for energy disaggregation research. In Workshop on
+  Data Mining Applications in Sustainability (SIGKDD), San Diego, CA
+  (Vol. 25, pp.~59-62).
+\item
+   {[}2{]} Keogh, E., \& Mueen, A. (2011). Curse of dimensionality. In
+  Encyclopedia of Machine Learning (pp.~257-258). Springer US. ISO 690
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{os}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+        \PY{k}{def} \PY{n+nf}{mkdir}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}check if a directory exists, otherwise create it\PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{k}{if} \PY{o+ow}{not} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{exists}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{p}{:}
+                \PY{n}{os}\PY{o}{.}\PY{n}{makedirs}\PY{p}{(}\PY{n}{path}\PY{p}{)}
+            \PY{k}{return} \PY{n}{path}
+        
+        \PY{n}{folder\PYZus{}root} \PY{o}{=} \PY{n}{mkdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{file\PYZus{}types} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{folder\PYZus{}root}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{all\PYZus{}appliances.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{file\PYZus{}listfiles} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{folder\PYZus{}root}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{all\PYZus{}appliance\PYZus{}file.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{get\PYZus{}all\PYZus{}redd\PYZus{}data}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{c}{\PYZsh{} Parse all building}
+            \PY{n}{list\PYZus{}of\PYZus{}appliances} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{n}{df\PYZus{}all\PYZus{}file} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+            \PY{k}{for} \PY{n}{building} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{building }\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{building}\PY{p}{)}
+                \PY{n}{filelabel} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{/Users/nacimbelkhir/LUKO/low\PYZus{}freq/house\PYZus{}\PYZob{}b\PYZcb{}/labels.dat}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{b}\PY{o}{=}\PY{n}{building}\PY{p}{)}
+                \PY{n}{dflabel} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{filelabel}\PY{p}{,} \PY{n}{header}\PY{o}{=}\PY{k}{None}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{id}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{type}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{k}{None}\PY{p}{,} \PY{n}{delim\PYZus{}whitespace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                \PY{c}{\PYZsh{} Parse All appliances}
+                \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{label} \PY{o+ow}{in} \PY{n}{dflabel}\PY{o}{.}\PY{n}{iterrows}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{appliance\PYZus{}id} \PY{o}{=} \PY{n}{label}\PY{o}{.}\PY{n}{id}
+                    \PY{n}{appliance\PYZus{}type} \PY{o}{=} \PY{n}{label}\PY{o}{.}\PY{n}{type}
+                    \PY{n}{list\PYZus{}of\PYZus{}appliances}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{appliance\PYZus{}type}\PY{p}{)}
+                    \PY{n}{folder\PYZus{}appliance} \PY{o}{=} \PY{n}{mkdir}\PY{p}{(}\PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{folder\PYZus{}root}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{meter\PYZus{}\PYZob{}0\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{appliance\PYZus{}type}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{fileappliance} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{/Users/nacimbelkhir/LUKO/redd\PYZus{}low\PYZus{}freq/building\PYZob{}building\PYZcb{}/elec/meter\PYZob{}appliance\PYZcb{}.csv}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}
+                        \PY{n}{building}\PY{o}{=}\PY{n}{building}\PY{p}{,} \PY{n}{appliance}\PY{o}{=}\PY{n}{appliance\PYZus{}id}\PY{p}{)}
+        
+                    \PY{n}{df\PYZus{}meter} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{fileappliance}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{header}\PY{o}{=}\PY{k}{None}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+                    \PY{n}{df\PYZus{}meter}\PY{o}{.}\PY{n}{index} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{df\PYZus{}meter}\PY{o}{.}\PY{n}{index}\PY{p}{,} \PY{n}{unit}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{s}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                    \PY{n}{groupmeters\PYZus{}hourly} \PY{o}{=} \PY{n}{df\PYZus{}meter}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{TimeGrouper}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{H}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{DF} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                    \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{df\PYZus{}hourly} \PY{o+ow}{in} \PY{n}{groupmeters\PYZus{}hourly}\PY{p}{:}
+        
+                        \PY{n}{tt} \PY{o}{=} \PY{n}{df\PYZus{}hourly}\PY{o}{.}\PY{n}{resample}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{S}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{bfill}\PY{p}{(}\PY{p}{)}
+                        \PY{n}{vals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{tt}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+                        \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{vals}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                            \PY{k}{pass}
+                        \PY{k}{else}\PY{p}{:}
+                            \PY{n}{DF} \PY{o}{=} \PY{n}{DF}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{vals}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                    \PY{n}{filetrain} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{folder\PYZus{}appliance}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{train\PYZus{}b\PYZob{}0\PYZcb{}\PYZus{}id\PYZob{}1\PYZcb{}.csv}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{building}\PY{p}{,} \PY{n}{appliance\PYZus{}id}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{infofile} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{infofile}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{type}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{appliance\PYZus{}type}
+                    \PY{n}{infofile}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{building}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{building}\PY{p}{)}
+                    \PY{n}{infofile}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{applianceid}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{appliance\PYZus{}id}\PY{p}{)}
+                    \PY{n}{infofile}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{file}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{filetrain}
+                    \PY{n}{df\PYZus{}all\PYZus{}file} \PY{o}{=} \PY{n}{df\PYZus{}all\PYZus{}file}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{infofile}\PY{o}{.}\PY{n}{T}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                    \PY{n}{DF}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{filetrain}\PY{p}{)}
+        
+            \PY{n}{d} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{list\PYZus{}of\PYZus{}appliances}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{type}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{n}{d}\PY{o}{.}\PY{n}{drop\PYZus{}duplicates}\PY{p}{(}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{d}\PY{o}{.}\PY{n}{reset\PYZus{}index}\PY{p}{(}\PY{n}{drop}\PY{o}{=}\PY{k}{True}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{d}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{file\PYZus{}types}\PY{p}{)}
+            \PY{n}{df\PYZus{}all\PYZus{}file}\PY{o}{.}\PY{n}{building} \PY{o}{=} \PY{n}{df\PYZus{}all\PYZus{}file}\PY{o}{.}\PY{n}{building}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+            \PY{n}{df\PYZus{}all\PYZus{}file}\PY{o}{.}\PY{n}{applianceid} \PY{o}{=} \PY{n}{df\PYZus{}all\PYZus{}file}\PY{o}{.}\PY{n}{applianceid}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+            \PY{n}{df\PYZus{}all\PYZus{}file}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{file\PYZus{}listfiles}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{create\PYZus{}dataset}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        
+        \PY{l+s+sd}{    :return:}
+        \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{htrain} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}
+            \PY{n}{meter}\PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+        
+            \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{file\PYZus{}listfiles}\PY{p}{,}\PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+            \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{loc}\PY{p}{[} \PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{building}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{htrain}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{meter}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+        
+            \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+            \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{dataset\PYZus{}info} \PY{o+ow}{in} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{file}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+                \PY{n}{ifile} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{file}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                \PY{n}{appliancetype} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                \PY{n+nb}{print}\PY{p}{(}\PY{n}{ifile}\PY{p}{)}
+                \PY{n}{tmpdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{ifile}\PY{p}{,}\PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{header}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+                \PY{n}{tmpdf} \PY{o}{=} \PY{n}{tmpdf}\PY{o}{.}\PY{n}{T}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{tmpdf}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+                \PY{n}{tmpdf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{appliancetype}
+                \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tmpdf}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{n}{file\PYZus{}dataset}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+\end{Verbatim}
+
+    \section{A Statistical Machine Learning
+Approach}\label{a-statistical-machine-learning-approach}
+
+We propose to use some classical machine learnings that are known to
+perform well on binary classification: - Logistic Regression - Support
+Vector Machine - Random Forest
+
+Here, the two classes are: ``mains'' and ``refrigerator'' and the data
+from REDD. A cross validation procedure with 15 resamples(preserving the
+proportion of the classes in Train and Set) is done, such that.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{svm} \PY{k}{import} \PY{n}{LinearSVC}\PY{p}{,}\PY{n}{SVC}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{MinMaxScaler}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{cross\PYZus{}validation} \PY{k}{import} \PY{n}{StratifiedShuffleSplit}\PY{p}{,}\PY{n}{StratifiedKFold}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{f1\PYZus{}score}\PY{p}{,}\PY{n}{jaccard\PYZus{}similarity\PYZus{}score}
+        \PY{k}{def} \PY{n+nf}{xp\PYZus{}ml}\PY{p}{(}\PY{n}{datasetfile}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/toy\PYZus{}dataset.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        
+        \PY{l+s+sd}{    :return:}
+        \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{datasetfile}\PY{p}{)}
+            \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{mains}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{k}{del} \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+            \PY{n}{X}\PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+            \PY{k}{del} \PY{n}{df}
+        
+            \PY{n}{fold} \PY{o}{=} \PY{n}{StratifiedShuffleSplit}\PY{p}{(}\PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,}\PY{n}{n\PYZus{}iter}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{,}\PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.3}\PY{p}{)}
+            \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{1}
+            \PY{k}{try}\PY{p}{:}
+                \PY{n}{dfml} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{score\PYZus{}ml.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{k}{except}\PY{p}{:}
+                \PY{n}{dfml} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+        
+            \PY{k}{for} \PY{n}{ml} \PY{o+ow}{in} \PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{svm linear}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{rf}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{logistic}\PY{l+s}{\PYZdq{}}\PY{p}{]}\PY{p}{:}
+                \PY{n}{perf} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{n}{perf\PYZus{}jaccard} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{k}{for} \PY{n}{train\PYZus{}index}\PY{p}{,} \PY{n}{test\PYZus{}index} \PY{o+ow}{in} \PY{n}{fold}\PY{p}{:}
+                    \PY{n}{xtrain}\PY{p}{,} \PY{n}{ytrain}\PY{p}{,} \PY{n}{xtest}\PY{p}{,} \PY{n}{ytest} \PY{o}{=} \PY{n}{X}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{,}  \PY{n}{y}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{,}  \PY{n}{X}\PY{p}{[}\PY{n}{test\PYZus{}index}\PY{p}{]}\PY{p}{,}  \PY{n}{y}\PY{p}{[}\PY{n}{test\PYZus{}index}\PY{p}{]}
+        
+                    \PY{n}{scale} \PY{o}{=} \PY{n}{MinMaxScaler}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{xtrain} \PY{o}{=} \PY{n}{scale}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{xtrain}\PY{p}{)}
+        
+                    \PY{k}{if} \PY{n}{ml} \PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{svm linear}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                        \PY{n}{estimator} \PY{o}{=} \PY{n}{LinearSVC}\PY{p}{(}\PY{p}{)}
+                    \PY{k}{elif} \PY{n}{ml} \PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{rf}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                        \PY{n}{estimator} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,}\PY{n}{n\PYZus{}jobs}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+                    \PY{k}{elif} \PY{n}{ml} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{logistic}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                        \PY{n}{estimator} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{dual}\PY{o}{=}\PY{k}{True}\PY{p}{,}\PY{n}{n\PYZus{}jobs}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+                    \PY{k}{else}\PY{p}{:}
+                        \PY{k}{raise} \PY{n+ne}{ValueError}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{try one each these classifier: [ }\PY{l+s}{\PYZdq{}}\PY{l+s}{svm linear}\PY{l+s}{\PYZdq{}}\PY{l+s}{, }\PY{l+s}{\PYZdq{}}\PY{l+s}{rf}\PY{l+s}{\PYZdq{}}\PY{l+s}{, }\PY{l+s}{\PYZdq{}}\PY{l+s}{logistic}\PY{l+s}{\PYZdq{}}\PY{l+s}{]}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        
+                    \PY{n}{estimator}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{xtrain}\PY{p}{,} \PY{n}{ytrain}\PY{p}{)}
+        
+                    \PY{n}{xtest} \PY{o}{=} \PY{n}{scale}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{xtest}\PY{p}{)}
+                    \PY{n}{ypred} \PY{o}{=} \PY{n}{estimator}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{xtest}\PY{p}{)}
+                    \PY{n}{perf}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{ytest}\PY{p}{,} \PY{n}{ypred}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{perf\PYZus{}jaccard}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{jaccard\PYZus{}similarity\PYZus{}score}\PY{p}{(}\PY{n}{ytest}\PY{p}{,} \PY{n}{ypred}\PY{p}{)}\PY{p}{)}
+                \PY{n}{sperf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{perf}\PY{p}{)}
+                \PY{n}{sperf\PYZus{}jac} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{perf\PYZus{}jaccard}\PY{p}{)}
+                \PY{n}{dfperf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{f1}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{sperf}\PY{o}{.}\PY{n}{T}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{jaccard}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{sperf}\PY{o}{.}\PY{n}{T}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{algo}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{ml}
+                \PY{n}{dfml} \PY{o}{=} \PY{n}{dfml}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{dfperf}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{dfml}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{score\PYZus{}ml.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{scoreml} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{score\PYZus{}ml.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{scoreml}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{rf}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Random Forest}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         \PY{n}{scoreml}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{svm linear}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Support Vector Machine}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         \PY{n}{scoreml}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{logistic}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Logistic Regression}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         
+         \PY{n}{sns}\PY{o}{.}\PY{n}{factorplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{algo}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{f1}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{data}\PY{o}{=}\PY{n}{scoreml}\PY{p}{,}\PY{n}{kind}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{box}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{n}{aspect}\PY{o}{=}\PY{l+m+mf}{1.7}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Box Plot of F1 Scores for 3 different classifiers}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}26}]:} <matplotlib.text.Text at 0x10e120208>
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LUKO_APPLIANCE_files/LUKO_APPLIANCE_9_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Multi Class Problem}\label{multi-class-problem}
+
+We extend the first experiment to multiple classes:
+`mains',`refrigerator',`microwave',`dishwaser' of the REDD dataset.
+However, in addition to the binary classification experiments, a
+cross-validation procedure is performed on a dataset that includes the
+data of \textbf{3 households} and followed by a validation procedure
+based on the data of ** 2 households**
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{k}{def} \PY{n+nf}{create\PYZus{}dataset\PYZus{}larger}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        
+        \PY{l+s+sd}{    :return:}
+        \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}train}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{make a new train set}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{n}{htrain} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}
+                \PY{n}{meter}\PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+        
+                \PY{n+nb}{dict} \PY{o}{=} \PY{p}{\PYZob{}}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{1}\PY{p}{,}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{,}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{,}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{4}
+                \PY{p}{\PYZcb{}}
+        
+                \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{file\PYZus{}listfiles}\PY{p}{,}\PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+                \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{loc}\PY{p}{[} \PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{building}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{htrain}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{meter}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+        
+                \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{dataset\PYZus{}info} \PY{o+ow}{in} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{file}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{ifile} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{file}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                    \PY{n}{appliancetype} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{n}{ifile}\PY{p}{)}
+                    \PY{n}{tmpdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{ifile}\PY{p}{,}\PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{header}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+                    \PY{n}{tmpdf} \PY{o}{=} \PY{n}{tmpdf}\PY{o}{.}\PY{n}{T}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{tmpdf}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+                    \PY{n}{tmpdf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{appliancetype}
+                    \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tmpdf}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/redd\PYZus{}largerdataset\PYZus{}train.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+        
+            \PY{n}{\PYZus{}train}\PY{p}{(}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{\PYZus{}test}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{make a new test set}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{n}{htrain} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}
+                \PY{n}{meter} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+        
+                \PY{n+nb}{dict} \PY{o}{=} \PY{p}{\PYZob{}}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{,}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{2}\PY{p}{,}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{3}\PY{p}{,}
+                    \PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{4}
+                \PY{p}{\PYZcb{}}
+        
+                \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{file\PYZus{}listfiles}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+                \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{building}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{htrain}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{meter}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+        
+                \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{dataset\PYZus{}info} \PY{o+ow}{in} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{file}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{ifile} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{file}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                    \PY{n}{appliancetype} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{n}{ifile}\PY{p}{)}
+                    \PY{n}{tmpdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{ifile}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{header}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+                    \PY{n}{tmpdf} \PY{o}{=} \PY{n}{tmpdf}\PY{o}{.}\PY{n}{T}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{tmpdf}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+                    \PY{n}{tmpdf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{appliancetype}
+                    \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tmpdf}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+                \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/redd\PYZus{}largerdataset\PYZus{}test.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+            \PY{n}{\PYZus{}test}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{multiclass} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{score\PYZus{}ml\PYZus{}largerdataset\PYZus{}ml.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{multiclass}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{rf}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Random Forest}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         \PY{n}{multiclass}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{svm linear}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Support Vector Machine}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         \PY{n}{multiclass}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{logistic}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Logistic Regression}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{factorplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{algo}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{value}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{hue}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{set}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{data}\PY{o}{=}\PY{n}{multiclass}\PY{p}{,}\PY{n}{aspect}\PY{o}{=}\PY{l+m+mf}{1.8}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}13}]:} <seaborn.axisgrid.FacetGrid at 0x10bc31390>
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LUKO_APPLIANCE_files/LUKO_APPLIANCE_12_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \section{A Deep Learning Approach, Long Short Term Memory Recurrent
+Neural
+Network}\label{a-deep-learning-approach-long-short-term-memory-recurrent-neural-network}
+
+LSTM are known to have outstanding performance when it is well tuned.
+Here we propose to use LSTM with simple parameters and only two hidden
+layers and sigmoid activation functions.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{models} \PY{k}{import} \PY{n}{Sequential}
+        \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{layers} \PY{k}{import} \PY{n}{Dense}\PY{p}{,} \PY{n}{Dropout}\PY{p}{,} \PY{n}{Activation}\PY{p}{,} \PY{n}{Convolution1D}\PY{p}{,} \PY{n}{LSTM}\PY{p}{,} \PY{n}{GlobalMaxPooling1D}
+        \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{utils} \PY{k}{import} \PY{n}{np\PYZus{}utils}
+        \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{callbacks} \PY{k}{import} \PY{n}{History}
+        \PY{k+kn}{import} \PY{n+nn}{gc}
+        
+        \PY{k}{class} \PY{n+nc}{ConvolutionalLSTM}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{input\PYZus{}dim}\PY{p}{,}
+                         \PY{n}{input\PYZus{}length}\PY{p}{,}
+                         \PY{n}{nb\PYZus{}classes}\PY{p}{,}
+                         \PY{n}{hidden\PYZus{}dims}\PY{p}{,}
+                         \PY{n}{nb\PYZus{}filter}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,}
+                         \PY{n}{filter\PYZus{}length}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,}
+                         \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,}
+                         \PY{n}{pool\PYZus{}length}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{,}
+                         \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        
+        \PY{l+s+sd}{        :return:}
+        \PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{history} \PY{o}{=} \PY{n}{History}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{batch\PYZus{}size} \PY{o}{=} \PY{n}{batch\PYZus{}size}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{nb\PYZus{}epoch} \PY{o}{=} \PY{n}{nb\PYZus{}epoch}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{input\PYZus{}dim} \PY{o}{=} \PY{n}{input\PYZus{}dim}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{input\PYZus{}length} \PY{o}{=} \PY{n}{input\PYZus{}length}
+        
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
+                \PY{c}{\PYZsh{} self.model.add(Convolution1D(nb\PYZus{}filter=nb\PYZus{}filter, filter\PYZus{}length=filter\PYZus{}length, border\PYZus{}mode=\PYZsq{}same\PYZsq{}, activation=\PYZsq{}sigmoid\PYZsq{},input\PYZus{}dim=input\PYZus{}dim))}
+                \PY{c}{\PYZsh{} self.model.add(MaxPooling1D())}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{LSTM}\PY{p}{(}\PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{n}{input\PYZus{}dim}\PY{p}{,} \PY{n}{output\PYZus{}dim}\PY{o}{=}\PY{n}{hidden\PYZus{}dims}\PY{p}{,} \PY{n}{return\PYZus{}sequences}\PY{o}{=}\PY{k}{True}\PY{p}{,}\PY{n}{dropout\PYZus{}U}\PY{o}{=}\PY{l+m+mf}{0.3}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{LSTM}\PY{p}{(}\PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{n}{input\PYZus{}dim}\PY{p}{,} \PY{n}{output\PYZus{}dim}\PY{o}{=}\PY{n}{hidden\PYZus{}dims}\PY{p}{,} \PY{n}{return\PYZus{}sequences}\PY{o}{=}\PY{k}{True}\PY{p}{,}\PY{n}{dropout\PYZus{}U}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{LSTM}\PY{p}{(}\PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{n}{hidden\PYZus{}dims}\PY{p}{,} \PY{n}{output\PYZus{}dim}\PY{o}{=}\PY{n}{hidden\PYZus{}dims}\PY{p}{)}\PY{p}{)}
+        
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{n}{hidden\PYZus{}dims}\PY{p}{,} \PY{n}{output\PYZus{}dim}\PY{o}{=}\PY{n}{nb\PYZus{}classes}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{sigmoid}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{categorical\PYZus{}crossentropy}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{accuracy}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{adam}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{fit}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start fitting}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{n}{X\PYZus{}train} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{p}{(}\PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                \PY{n}{X\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{p}{(}\PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,}
+                                      \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{batch\PYZus{}size}\PY{p}{,}
+                                      \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                                      \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)}\PY{p}{,} \PY{n}{callbacks}\PY{o}{=}\PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{history}\PY{p}{]}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{predict}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{batchsize}\PY{o}{=}\PY{l+m+mi}{32}\PY{p}{)}\PY{p}{:}
+                \PY{n}{X\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{p}{(}\PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{predict\PYZus{}classes}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batchsize}\PY{p}{)}
+            
+            
+        \PY{k}{class} \PY{n+nc}{ConvolutionalNetwork1D}\PY{p}{(}\PY{n+nb}{object}\PY{p}{)}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,}
+                         \PY{n}{input\PYZus{}dim}\PY{p}{,}
+                         \PY{n}{input\PYZus{}length}\PY{p}{,}
+                         \PY{n}{nb\PYZus{}classes}\PY{p}{,}
+                         \PY{n}{hidden\PYZus{}dims}\PY{p}{,}
+                         \PY{n}{nb\PYZus{}filter}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,}
+                         \PY{n}{filter\PYZus{}length}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,}
+                         \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,}
+                         \PY{n}{pool\PYZus{}length}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{,}
+                         \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{l+s+sd}{        :return:}
+        \PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{history} \PY{o}{=} \PY{n}{History}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{batch\PYZus{}size} \PY{o}{=} \PY{n}{batch\PYZus{}size}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{nb\PYZus{}epoch} \PY{o}{=} \PY{n}{nb\PYZus{}epoch}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{input\PYZus{}dim} \PY{o}{=} \PY{n}{input\PYZus{}dim}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{input\PYZus{}length} \PY{o}{=} \PY{n}{input\PYZus{}length}
+        
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Convolution1D}\PY{p}{(}\PY{n}{nb\PYZus{}filter}\PY{o}{=}\PY{n}{nb\PYZus{}filter}\PY{p}{,}
+                                             \PY{n}{filter\PYZus{}length}\PY{o}{=}\PY{n}{filter\PYZus{}length}\PY{p}{,}
+                                             \PY{n}{border\PYZus{}mode}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{same}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                             \PY{n}{activation}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{sigmoid}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                             \PY{c}{\PYZsh{} input\PYZus{}shape=(1,input\PYZus{}length,1)}
+                                             \PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{n}{input\PYZus{}dim}\PY{p}{,}
+                                             \PY{c}{\PYZsh{} input\PYZus{}length=input\PYZus{}length}
+                                             \PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{GlobalMaxPooling1D}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{n}{hidden\PYZus{}dims}\PY{p}{)}\PY{p}{)}
+                \PY{c}{\PYZsh{} self.model.add(Dropout(0.2))}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{sigmoid}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{n}{hidden\PYZus{}dims}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{sigmoid}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{n}{hidden\PYZus{}dims} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{sigmoid}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+        
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{n}{nb\PYZus{}classes}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{sigmoid}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{compiling}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{categorical\PYZus{}crossentropy}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{accuracy}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{adam}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{fit}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start fitting}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{n}{X\PYZus{}train} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{p}{(}\PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                \PY{n}{X\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{p}{(}\PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,}
+                                      \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{batch\PYZus{}size}\PY{p}{,}
+                                      \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                                      \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)}\PY{p}{,} \PY{n}{callbacks}\PY{o}{=}\PY{p}{[}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{history}\PY{p}{]}\PY{p}{)}
+        
+            \PY{k}{def} \PY{n+nf}{predict}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{batchsize}\PY{o}{=}\PY{l+m+mi}{32}\PY{p}{)}\PY{p}{:}
+                \PY{n}{X\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{p}{(}\PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{predict\PYZus{}classes}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batchsize}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Using TensorFlow backend.
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{dict\PYZus{}key} \PY{o}{=} \PY{p}{\PYZob{}}
+            \PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{0}\PY{p}{,}
+            \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{,}
+            \PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{2}\PY{p}{,}
+            \PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{3}
+        \PY{p}{\PYZcb{}}
+        \PY{k}{def} \PY{n+nf}{\PYZus{}handle\PYZus{}zeros\PYZus{}in\PYZus{}scale}\PY{p}{(}\PY{n}{scale}\PY{p}{,} \PY{n}{copy}\PY{o}{=}\PY{k}{True}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{} Makes sure that whenever scale is zero, we handle it correctly.}
+        
+        \PY{l+s+sd}{    This happens in most scalers when we have constant features.\PYZsq{}\PYZsq{}\PYZsq{}}
+        
+            \PY{c}{\PYZsh{} if we are fitting on 1D arrays, scale might be a scalar}
+            \PY{k}{if} \PY{n}{np}\PY{o}{.}\PY{n}{isscalar}\PY{p}{(}\PY{n}{scale}\PY{p}{)}\PY{p}{:}
+                \PY{k}{if} \PY{n}{scale} \PY{o}{==} \PY{o}{.}\PY{l+m+mi}{0}\PY{p}{:}
+                    \PY{n}{scale} \PY{o}{=} \PY{l+m+mf}{1.}
+                \PY{k}{return} \PY{n}{scale}
+            \PY{k}{elif} \PY{n+nb}{isinstance}\PY{p}{(}\PY{n}{scale}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{)}\PY{p}{:}
+                \PY{k}{if} \PY{n}{copy}\PY{p}{:}
+                    \PY{c}{\PYZsh{} New array to avoid side\PYZhy{}effects}
+                    \PY{n}{scale} \PY{o}{=} \PY{n}{scale}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+                \PY{n}{scale}\PY{p}{[}\PY{n}{scale} \PY{o}{==} \PY{l+m+mf}{0.0}\PY{p}{]} \PY{o}{=} \PY{l+m+mf}{1.0}
+                \PY{k}{return} \PY{n}{scale}
+        \PY{k}{def} \PY{n+nf}{scale}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{data\PYZus{}min}\PY{p}{,} \PY{n}{data\PYZus{}max}\PY{p}{,} \PY{n}{newmin}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{newmax}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+            \PY{n}{data\PYZus{}range} \PY{o}{=} \PY{n}{data\PYZus{}max} \PY{o}{\PYZhy{}} \PY{n}{data\PYZus{}min}
+            \PY{n}{scale\PYZus{}} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{newmax} \PY{o}{\PYZhy{}} \PY{n}{newmin}\PY{p}{)} \PY{o}{/} \PY{n}{\PYZus{}handle\PYZus{}zeros\PYZus{}in\PYZus{}scale}\PY{p}{(}\PY{n}{data\PYZus{}range}\PY{p}{)}\PY{p}{)}
+            \PY{n}{min\PYZus{}} \PY{o}{=} \PY{n}{newmin} \PY{o}{\PYZhy{}} \PY{n}{data\PYZus{}min} \PY{o}{*} \PY{n}{scale\PYZus{}}
+            \PY{n}{x} \PY{o}{=} \PY{n}{x} \PY{o}{*} \PY{n}{scale\PYZus{}}
+            \PY{n}{x} \PY{o}{+}\PY{o}{=} \PY{n}{min\PYZus{}}
+            \PY{k}{return} \PY{n}{x}
+        \PY{k}{def} \PY{n+nf}{xp\PYZus{}largedataset\PYZus{}convolutionalNetwork}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{l+s+sd}{    :return:}
+        \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/redd\PYZus{}largerdataset\PYZus{}train.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{dict\PYZus{}key}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{nb\PYZus{}classes} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        
+            \PY{k}{del} \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+            \PY{n}{X} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+        
+            \PY{k}{del} \PY{n}{df}
+            \PY{n}{fold} \PY{o}{=} \PY{n}{StratifiedShuffleSplit}\PY{p}{(}\PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{n\PYZus{}iter}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{)}
+            \PY{k}{try}\PY{p}{:}
+                \PY{n}{dfml} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{score\PYZus{}larger\PYZus{}dataset\PYZus{}DL.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{k}{except}\PY{p}{:}
+                \PY{n}{dfml} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+        
+            \PY{n}{dfvalidation} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/redd\PYZus{}largerdataset\PYZus{}test.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{dfvalidation}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{dict\PYZus{}key}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{yval} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{dfvalidation}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{k}{del} \PY{n}{dfvalidation}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+            \PY{n}{xval} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{dfvalidation}\PY{p}{)}
+        
+            \PY{n}{dfplot\PYZus{}ALLXP} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+            \PY{k}{for} \PY{n}{ml} \PY{o+ow}{in} \PY{p}{[}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{convlstm}\PY{l+s}{\PYZdq{}}\PY{p}{,}
+                \PY{c}{\PYZsh{} \PYZdq{}convnet\PYZdq{},}
+            \PY{p}{]}\PY{p}{:}
+                \PY{n}{iterindex} \PY{o}{=} \PY{l+m+mi}{1}
+                
+                \PY{n}{perf\PYZus{}test} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{n}{perf\PYZus{}validation} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{k}{for} \PY{n}{train\PYZus{}index}\PY{p}{,} \PY{n}{test\PYZus{}index} \PY{o+ow}{in} \PY{n}{fold}\PY{p}{:}
+                    \PY{n}{xtrain}\PY{p}{,} \PY{n}{ytrain}\PY{p}{,} \PY{n}{xtest}\PY{p}{,} \PY{n}{ytest} \PY{o}{=} \PY{n}{X}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{,} \PY{n}{X}\PY{p}{[}\PY{n}{test\PYZus{}index}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{p}{[}\PY{n}{test\PYZus{}index}\PY{p}{]}
+        
+                    \PY{n}{ytrain} \PY{o}{=} \PY{n}{np\PYZus{}utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{ytrain}\PY{p}{,} \PY{n}{nb\PYZus{}classes}\PY{o}{=}\PY{n}{nb\PYZus{}classes}\PY{p}{)}
+                    \PY{n}{ytest} \PY{o}{=} \PY{n}{np\PYZus{}utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{ytest}\PY{p}{,} \PY{n}{nb\PYZus{}classes}\PY{o}{=}\PY{n}{nb\PYZus{}classes}\PY{p}{)}
+        
+                    \PY{n}{minn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{xtrain}\PY{p}{)}
+                    \PY{n}{maxx} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{xtrain}\PY{p}{)}
+                    \PY{n}{xtrain} \PY{o}{=} \PY{n}{scale}\PY{p}{(}\PY{n}{xtrain}\PY{p}{,} \PY{n}{minn}\PY{p}{,} \PY{n}{maxx}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+        
+                    \PY{n}{input\PYZus{}length}\PY{p}{,} \PY{n}{input\PYZus{}dim} \PY{o}{=} \PY{n}{xtrain}\PY{o}{.}\PY{n}{shape}
+        
+                    \PY{k}{if} \PY{n}{ml} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{convnet}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                        \PY{n}{estimator} \PY{o}{=} \PY{n}{ConvolutionalNetwork1D}\PY{p}{(}\PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{n}{input\PYZus{}dim}\PY{p}{,} \PY{n}{input\PYZus{}length}\PY{o}{=}\PY{n}{input\PYZus{}length}\PY{p}{,}
+                                                           \PY{n}{nb\PYZus{}classes}\PY{o}{=}\PY{n}{nb\PYZus{}classes}\PY{p}{,} \PY{n}{hidden\PYZus{}dims}\PY{o}{=}\PY{l+m+mi}{200}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{)}
+                    \PY{k}{elif} \PY{n}{ml} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{convlstm}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                        \PY{n}{estimator} \PY{o}{=} \PY{n}{ConvolutionalLSTM}\PY{p}{(}\PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{n}{input\PYZus{}dim}\PY{p}{,} \PY{n}{input\PYZus{}length}\PY{o}{=}\PY{n}{input\PYZus{}length}\PY{p}{,} \PY{n}{nb\PYZus{}classes}\PY{o}{=}\PY{n}{nb\PYZus{}classes}\PY{p}{,}
+                                                      \PY{n}{hidden\PYZus{}dims}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{)}
+                    \PY{k}{else}\PY{p}{:}
+                        \PY{k}{raise} \PY{n+ne}{ValueError}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{try one each these classifier: [ }\PY{l+s}{\PYZdq{}}\PY{l+s}{svm linear}\PY{l+s}{\PYZdq{}}\PY{l+s}{, }\PY{l+s}{\PYZdq{}}\PY{l+s}{rf}\PY{l+s}{\PYZdq{}}\PY{l+s}{, }\PY{l+s}{\PYZdq{}}\PY{l+s}{logistic}\PY{l+s}{\PYZdq{}}\PY{l+s}{]}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        
+        
+                    \PY{n}{xtest} \PY{o}{=} \PY{n}{scale}\PY{p}{(}\PY{n}{xtest}\PY{p}{,} \PY{n}{minn}\PY{p}{,} \PY{n}{maxx}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+        
+                    \PY{n}{estimator}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{xtrain}\PY{p}{,} \PY{n}{ytrain}\PY{p}{,} \PY{n}{xtest}\PY{p}{,} \PY{n}{ytest}\PY{p}{)}
+                    \PY{n}{val\PYZus{}acc}\PY{p}{,} \PY{n}{val\PYZus{}loss}\PY{p}{,} \PY{n}{loss}\PY{p}{,} \PY{n}{acc} \PY{o}{=} \PY{n}{estimator}\PY{o}{.}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{val\PYZus{}acc}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{estimator}\PY{o}{.}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{val\PYZus{}loss}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PYZbs{}
+                                                   \PY{n}{estimator}\PY{o}{.}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{loss}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{estimator}\PY{o}{.}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{acc}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+        
+                    \PY{n}{tmp} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{d} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{iter\PYZob{}0\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{iterindex}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n}{val\PYZus{}acc}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{perf}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Val Acc}\PY{l+s}{\PYZsq{}}
+                    \PY{n}{tmp} \PY{o}{=} \PY{n}{tmp}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{d}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                    \PY{n}{d} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{iter\PYZob{}0\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{iterindex}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n}{val\PYZus{}loss}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{perf}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Val Loss}\PY{l+s}{\PYZsq{}}
+                    \PY{n}{tmp} \PY{o}{=} \PY{n}{tmp}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{d}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                    \PY{n}{d} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{iter\PYZob{}0\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{iterindex}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n}{loss}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{perf}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Loss}\PY{l+s}{\PYZsq{}}
+                    \PY{n}{tmp} \PY{o}{=} \PY{n}{tmp}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{d}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                    \PY{n}{d} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{iter\PYZob{}0\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{iterindex}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n}{acc}
+                    \PY{n}{d}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{perf}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Acc}\PY{l+s}{\PYZsq{}}
+                    \PY{n}{tmp} \PY{o}{=} \PY{n}{tmp}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{d}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                    \PY{n}{dfplot\PYZus{}runs} \PY{o}{=} \PY{n}{dfplot\PYZus{}runs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tmp}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                    \PY{n}{xval} \PY{o}{=} \PY{n}{scale}\PY{p}{(}\PY{n}{xval}\PY{p}{,} \PY{n}{minn}\PY{p}{,} \PY{n}{maxx}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+                    \PY{n}{ypred} \PY{o}{=} \PY{n}{estimator}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{xval}\PY{p}{)}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{The accuracy of the model on the Validation set is : \PYZob{}0\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{yval}\PY{p}{)}\PY{p}{,} \PY{n+nb}{list}\PY{p}{(}\PY{n}{ypred}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{perf\PYZus{}validation}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{yval}\PY{p}{)}\PY{p}{,} \PY{n+nb}{list}\PY{p}{(}\PY{n}{ypred}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{gc}\PY{o}{.}\PY{n}{collect}\PY{p}{(}\PY{p}{)}
+                    \PY{n}{iterindex}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+        
+                \PY{n}{dfplot\PYZus{}runs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{algo}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{ml}
+                \PY{n}{dfplot\PYZus{}ALLXP} \PY{o}{=} \PY{n}{dfplot\PYZus{}ALLXP}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{dfplot\PYZus{}runs}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                \PY{n}{sperftest} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{perf\PYZus{}test}\PY{p}{)}
+                \PY{n}{sperfval} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{perf\PYZus{}validation}\PY{p}{)}
+        
+                \PY{n}{dfperf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{value}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{sperftest}\PY{o}{.}\PY{n}{T}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{set}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{test}\PY{l+s}{\PYZsq{}}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{algo}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{ml}
+                \PY{n}{dfml} \PY{o}{=} \PY{n}{dfml}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{dfperf}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+                \PY{n}{dfperf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{value}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{sperfval}\PY{o}{.}\PY{n}{T}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{set}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{validation}\PY{l+s}{\PYZsq{}}
+                \PY{n}{dfperf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{algo}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{ml}
+                \PY{n}{dfml} \PY{o}{=} \PY{n}{dfml}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{dfperf}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+        
+            \PY{n}{dfplot\PYZus{}ALLXP}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{xpruns.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{k}{False}\PY{p}{)}
+            \PY{n}{dfml}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{score\PYZus{}larger\PYZus{}dataset\PYZus{}DL.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+\end{Verbatim}
+
+    The following figure show the learning process of one cross-validation,
+showing promising results of the model in particular with the
+\includegraphics{plot1_convlstm.png}
+
+Last We validate the model when parsing a set of different shuffled
+signal in the household 6 of the REDD dataset.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{os}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{utils} \PY{k}{import} \PY{n}{shuffle}
+        \PY{k}{def} \PY{n+nf}{mkdir}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{l+s+sd}{    Check if directories exist else it create all the dirs}
+        
+        \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{k}{if} \PY{o+ow}{not} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{exists}\PY{p}{(}\PY{n}{path}\PY{p}{)}\PY{p}{:}
+                \PY{n}{os}\PY{o}{.}\PY{n}{makedirs}\PY{p}{(}\PY{n}{path}\PY{p}{)}
+            \PY{k}{return} \PY{n}{path}
+        
+        \PY{k}{def} \PY{n+nf}{\PYZus{}train}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        
+            \PY{n}{folder\PYZus{}root} \PY{o}{=} \PY{n}{mkdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{file\PYZus{}listfiles} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{folder\PYZus{}root}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{all\PYZus{}appliance\PYZus{}file.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{make a new train set}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{htrain} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{6}\PY{p}{]}
+            \PY{n}{meter} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+        
+            \PY{n+nb}{dict} \PY{o}{=} \PY{p}{\PYZob{}}
+                \PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{,}
+                \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{2}\PY{p}{,}
+                \PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{3}\PY{p}{,}
+                \PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{4}
+            \PY{p}{\PYZcb{}}
+        
+            \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{file\PYZus{}listfiles}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+            \PY{n}{all\PYZus{}file} \PY{o}{=} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{building}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{htrain}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{meter}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+            \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{drop\PYZus{}duplicates}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{type}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{n}{all\PYZus{}file}\PY{p}{)}
+            \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+            \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{dataset\PYZus{}info} \PY{o+ow}{in} \PY{n}{all\PYZus{}file}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{file}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+                \PY{n}{ifile} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{file}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                \PY{n}{appliancetype} \PY{o}{=} \PY{n}{dataset\PYZus{}info}\PY{o}{.}\PY{n}{type}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                \PY{n+nb}{print}\PY{p}{(}\PY{n}{ifile}\PY{p}{)}
+                \PY{n}{tmpdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{ifile}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{header}\PY{o}{=}\PY{k}{None}\PY{p}{)}
+                \PY{n}{tmpdf} \PY{o}{=} \PY{n}{tmpdf}\PY{o}{.}\PY{n}{T}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{tmpdf}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+                \PY{n}{tmpdf} \PY{o}{=} \PY{n}{tmpdf}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{)}\PY{p}{]}
+                \PY{n}{tmpdf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{appliancetype}
+                \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tmpdf}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{df} \PY{o}{=} \PY{n}{shuffle}\PY{p}{(}\PY{n}{shuffle}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{)}
+        
+            \PY{n}{df\PYZus{}copy} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+            \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n}{df\PYZus{}copy}\PY{o}{.}\PY{n}{columns}\PY{p}{:}
+                \PY{n}{df\PYZus{}copy}\PY{p}{[}\PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{n}{df\PYZus{}copy}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+        
+            \PY{k}{del} \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+            \PY{k}{del} \PY{n}{df\PYZus{}copy}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+            \PY{n}{df\PYZus{}copy}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+            \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+            \PY{n}{df\PYZus{}copy} \PY{o}{=} \PY{n}{df\PYZus{}copy}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+        
+            \PY{n}{DF} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+            \PY{n}{DF}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{value}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{df}
+            \PY{n}{DF}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{df\PYZus{}copy}
+            \PY{n+nb}{print}\PY{p}{(}\PY{n}{DF}\PY{p}{)}
+            \PY{n}{DF}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{allbuilding6.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{k}{def} \PY{n+nf}{slidingWindow}\PY{p}{(}\PY{n}{sequence}\PY{p}{,} \PY{n}{winSize}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Returns a generator that will iterate through}
+         \PY{l+s+sd}{    the defined chunks of input sequence.  Input sequence}
+         \PY{l+s+sd}{    must be iterable.\PYZdq{}\PYZdq{}\PYZdq{}}
+         
+             \PY{c}{\PYZsh{} Verify the inputs}
+             \PY{k}{try}\PY{p}{:}
+                 \PY{n}{it} \PY{o}{=} \PY{n+nb}{iter}\PY{p}{(}\PY{n}{sequence}\PY{p}{)}
+             \PY{k}{except} \PY{n+ne}{TypeError}\PY{p}{:}
+                 \PY{k}{raise} \PY{n+ne}{Exception}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{**ERROR** sequence must be iterable.}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+             \PY{k}{if} \PY{o+ow}{not} \PY{p}{(}\PY{p}{(}\PY{n+nb}{type}\PY{p}{(}\PY{n}{winSize}\PY{p}{)} \PY{o}{==} \PY{n+nb}{type}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)} \PY{o+ow}{and} \PY{p}{(}\PY{n+nb}{type}\PY{p}{(}\PY{n}{step}\PY{p}{)} \PY{o}{==} \PY{n+nb}{type}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{raise} \PY{n+ne}{Exception}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{**ERROR** type(winSize) and type(step) must be int.}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+             \PY{k}{if} \PY{n}{step} \PY{o}{\PYZgt{}} \PY{n}{winSize}\PY{p}{:}
+                 \PY{k}{raise} \PY{n+ne}{Exception}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{**ERROR** step must not be larger than winSize.}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+             \PY{k}{if} \PY{n}{winSize} \PY{o}{\PYZgt{}} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sequence}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{raise} \PY{n+ne}{Exception}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{**ERROR** winSize must not be larger than sequence length.}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         
+             \PY{c}{\PYZsh{} Pre\PYZhy{}compute number of chunks to emit}
+             \PY{n}{numOfChunks} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{sequence}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{winSize}\PY{p}{)} \PY{o}{/} \PY{n}{step}\PY{p}{)} \PY{o}{+} \PY{l+m+mi}{1}
+         
+             \PY{c}{\PYZsh{} Do the work}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{numOfChunks} \PY{o}{*} \PY{n}{step}\PY{p}{)}\PY{p}{,} \PY{n}{step}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{yield} \PY{n}{sequence}\PY{p}{[}\PY{n}{i}\PY{p}{:}\PY{n}{i} \PY{o}{+} \PY{n}{winSize}\PY{p}{]}
+         
+         
+         
+         
+         
+         \PY{k}{def} \PY{n+nf}{valid}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{read file}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/redd\PYZus{}largerdataset\PYZus{}train.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{df1} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/redd\PYZus{}largerdataset\PYZus{}test.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{df1}\PY{p}{,} \PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+             \PY{n}{df}\PY{o}{.}\PY{n}{reset\PYZus{}index}\PY{p}{(}\PY{n}{drop}\PY{o}{=}\PY{k}{True}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+             \PY{n}{df}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{dict\PYZus{}key}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         
+             \PY{n}{y} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+             \PY{k}{del} \PY{n}{df}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+             \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+         
+             \PY{n}{minn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+             \PY{n}{maxx} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+             \PY{n}{x} \PY{o}{=} \PY{n}{scale}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{minn}\PY{p}{,}\PY{n}{maxx}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ Learn}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{estimator} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{n\PYZus{}jobs}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+             \PY{c}{\PYZsh{}}
+             \PY{n}{estimator}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{)}
+         
+             \PY{n}{validdf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{allbuilding6.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{chunk} \PY{o}{=} \PY{n}{slidingWindow}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{validdf}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3600}\PY{p}{,}\PY{l+m+mi}{3600}\PY{p}{)}
+             \PY{c}{\PYZsh{} i = 1}
+             \PY{c}{\PYZsh{} for c in chunk:}
+             \PY{c}{\PYZsh{}     print(i)}
+             \PY{c}{\PYZsh{}     i+=1}
+             \PY{c}{\PYZsh{} exit()}
+             \PY{n}{xp} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{start validation}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{1}
+             \PY{k}{for} \PY{n}{c} \PY{o+ow}{in} \PY{n}{chunk}\PY{p}{:}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+                 \PY{n}{a}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+                 \PY{n}{val} \PY{o}{=} \PY{n}{validdf}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{n}{c}\PY{p}{]}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{xtest} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{val}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{value}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{ytest} \PY{o}{=} \PY{n}{val}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{estimator}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{scale}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{xtest}\PY{p}{)}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,}\PY{n}{minn}\PY{p}{,}\PY{n}{maxx}\PY{p}{)}\PY{p}{)}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{y\PYZus{}pred}\PY{o}{==}\PY{n}{ytest}\PY{p}{,}\PY{n}{end}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{, }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                 \PY{n}{val}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{predlabel}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{y\PYZus{}pred}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{n}{xp} \PY{o}{=} \PY{n}{xp}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{val}\PY{p}{,}\PY{n}{ignore\PYZus{}index}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+             \PY{n}{xp}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{results2.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}40}]:} \PY{n}{perf} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{results2.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{perf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{predlabel}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{perf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{predlabel}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{+}\PY{l+m+mi}{1}
+         
+         \PY{n}{dict\PYZus{}key} \PY{o}{=} \PY{p}{\PYZob{}}
+                 \PY{l+m+mi}{1}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                 \PY{l+m+mi}{2}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                 \PY{l+m+mi}{3}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                 \PY{l+m+mi}{4}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}
+             \PY{p}{\PYZcb{}}
+         \PY{n}{f}\PY{p}{,} \PY{p}{(}\PY{n}{ax1}\PY{p}{,}\PY{n}{ax2}\PY{p}{)} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{,}\PY{n}{sharex}\PY{o}{=}\PY{k}{True}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{signal}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{ax1}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{perf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{value}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{yaxis}\PY{o}{.}\PY{n}{set\PYZus{}ticks}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Class}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{perf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{label}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{True}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{perf}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{predlabel}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Predicted}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{ax2}\PY{o}{.}\PY{n}{set\PYZus{}yticklabels}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{mains}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{refrigerator}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{microwave}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{dishwaser}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}40}]:} [<matplotlib.text.Text at 0x124e5d208>,
+          <matplotlib.text.Text at 0x124e5a780>,
+          <matplotlib.text.Text at 0x124abceb8>,
+          <matplotlib.text.Text at 0x124e4c438>]
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{LUKO_APPLIANCE_files/LUKO_APPLIANCE_19_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    For this last example we ramdomly generated 4 whole days(of 24 hours)
+randomly alterning 4 different signals of the households number 6 of the
+REDD database. Based on the dataset 5 different households.
+
+The model is learned with a Random Forest classifier. For the
+validation, the 5 days signal is parsed with a 3600 seconds window with
+a 3600 step.
+
+    \section{Additionnal Questions}\label{additionnal-questions}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}41}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         \PY{k}{def} \PY{n+nf}{exo1}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{fact}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{n}\PY{o}{\PYZlt{}}\PY{l+m+mi}{2}\PY{p}{:}
+                     \PY{k}{return} \PY{l+m+mi}{1}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{k}{return} \PY{n}{n}\PY{o}{*}\PY{n}{fact}\PY{p}{(}\PY{n}{n}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{fact}\PY{p}{(}\PY{l+m+mi}{30}\PY{p}{)}\PY{p}{)}
+         
+         \PY{k}{def} \PY{n+nf}{exo2}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{sorted}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{i} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argsort}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+                 \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{asarray}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+                 \PY{k}{return} \PY{n}{y}\PY{p}{,} \PY{n}{i}
+             \PY{n}{a} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{random\PYZus{}integers}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}
+             \PY{n}{i}\PY{p}{,}\PY{n}{j} \PY{o}{=} \PY{n+nb}{sorted}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+         
+         \PY{k}{def} \PY{n+nf}{exo3}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{min\PYZus{}tree}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{minn}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{inf}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{np}\PY{o}{.}\PY{n}{isscalar}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{:}
+                     \PY{n}{minn} \PY{o}{=} \PY{n}{X}  \PY{k}{if} \PY{n}{X} \PY{o}{\PYZlt{}}\PY{n}{minn} \PY{k}{else} \PY{n}{minn}
+                     \PY{k}{return} \PY{n}{minn}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{l} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                     \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{X}\PY{p}{:}
+                         \PY{n}{l}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{min\PYZus{}tree}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{minn}\PY{o}{=}\PY{n}{minn}\PY{p}{)}\PY{p}{)}
+                     \PY{k}{return} \PY{n}{np}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{l}\PY{p}{)}
+         
+             \PY{n}{a} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{p}{[}\PY{p}{[}\PY{p}{[}\PY{p}{[}\PY{p}{[}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1000}\PY{p}{]}\PY{p}{]}\PY{p}{]}\PY{p}{]}\PY{p}{]}\PY{p}{]}\PY{p}{,}  \PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{[} \PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{100}\PY{p}{,}   \PY{p}{]}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1} \PY{p}{]}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{40}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{n}{e4}\PY{p}{]}
+             \PY{n}{min\PYZus{}tree}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
